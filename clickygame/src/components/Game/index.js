@@ -7,18 +7,19 @@ import data from "../../data.json";
 
 class Game extends Component{
     state = {
-        data,
+        data:data,
         score: 0,
         topScore: 0
     }
-    componentDidUpdate(){
+    componentDidMount(){
         this.setState({data: this.shuffle(this.state.data)})
     }
     shuffle = (data) =>{
-        let  i= data.lenght-1;
+        console.log("shuffle data function")
+        let i= data.length-1;
         while(i>0){
             const j = Math.floor(Math.random() *(i+1));
-            const temp = data[j];
+            const temp = data[i];
             data[i] = data[j];
             data[j] = temp;
             i--;
